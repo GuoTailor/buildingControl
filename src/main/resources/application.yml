@@ -1,1 +1,36 @@
+server:
+  port: 80
 
+spring:
+  main:
+    allow-circular-references: true
+  datasource:
+    username: root
+    password: admin
+    url: jdbc:mysql://localhost:3306/building_control?useUnicode=true&characterEncoding=utf-8&serverTimezone=GMT%2B8
+    driver-class-name: com.mysql.cj.jdbc.Driver
+  web:
+    resources:
+      static-locations: file:file/, classpath:/static
+
+logging:
+  level:
+    com:
+      gyh:
+        payment:
+          mapper: DEBUG
+
+mybatis:
+  mapper-locations: classpath:/mapper/*Mapper.xml
+  type-aliases-package: com.gyh.buildingcontrol.mapper
+
+
+springdoc:
+  swagger-ui:
+    path: /swagger-ui.html
+  api-docs:
+    groups:
+      enabled: true
+  show-actuator: true
+
+fileUploadPath: file/
